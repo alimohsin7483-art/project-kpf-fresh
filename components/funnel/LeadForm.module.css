@@ -1,0 +1,128 @@
+.form { display: flex; flex-direction: column; gap: 1.2rem; }
+
+.field { display: flex; flex-direction: column; gap: 0.4rem; }
+
+.input {
+  width: 100%;
+  background: rgba(255,255,255,0.05);
+  border: 1.5px solid rgba(255,255,255,0.12);
+  color: #F5F5F0;
+  font-family: 'Barlow', sans-serif;
+  font-size: 1rem;
+  padding: 0.9rem 1.2rem;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+  border-radius: 0;
+}
+.input::placeholder { color: rgba(255,255,255,0.3); }
+.input:focus { border-color: #D4FF00; background: rgba(212,255,0,0.04); }
+.inputError { border-color: #FF4444 !important; }
+.error { font-size: 0.8rem; color: #FF4444; font-family: 'Barlow Condensed', sans-serif; font-weight: 600; letter-spacing: 0.06em; }
+
+.goalLabel { font-family: 'Barlow Condensed', sans-serif; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(212,255,0,0.8); margin-bottom: 0.6rem; }
+
+.goals { display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; }
+.goalBtn {
+  background: rgba(255,255,255,0.04);
+  border: 1.5px solid rgba(255,255,255,0.1);
+  padding: 0.85rem 0.7rem;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s;
+  display: flex; flex-direction: column; gap: 0.2rem;
+}
+.goalBtn:hover { border-color: rgba(212,255,0,0.4); background: rgba(212,255,0,0.06); }
+.goalSelected { border-color: #D4FF00 !important; background: rgba(212,255,0,0.1) !important; }
+.goalIcon { 
+  font-family: 'Barlow Condensed', sans-serif; 
+  font-size: 0.92rem; 
+  font-weight: 800; 
+  letter-spacing: 0.06em; 
+  color: #D4FF00; /* 🔥 FIX: neon visible heading */
+}
+.goalDesc { font-size: 0.78rem; color: rgba(255,255,255,0.45); font-family: 'Barlow', sans-serif; }
+
+.submit {
+  width: 100%;
+  background: #D4FF00;
+  color: #050508;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 1.1rem;
+  border: none;
+  cursor: pointer;
+  clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+  display: flex; align-items: center; justify-content: center;
+  min-height: 56px;
+}
+.submit:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(212,255,0,0.4);
+  background: #BCEB00;
+}
+.submit:disabled { opacity: 0.7; cursor: not-allowed; }
+
+.spinner {
+  width: 20px; height: 20px;
+  border: 2px solid rgba(0,0,0,0.3);
+  border-top-color: #050508;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  display: inline-block;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.privacy { font-size: 0.78rem; color: rgba(255,255,255,0.35); text-align: center; font-family: 'Barlow', sans-serif; }
+
+/* SUCCESS */
+.success { text-align: center; padding: 1rem 0; display: flex; flex-direction: column; align-items: center; gap: 1.2rem; }
+.successIcon { font-size: 3rem; animation: popIn 0.4s ease; }
+@keyframes popIn { from { transform: scale(0); } to { transform: scale(1); } }
+.successTitle { font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem; letter-spacing: 0.08em; color: #D4FF00; }
+.successSub { font-size: 1rem; color: rgba(255,255,255,0.65); line-height: 1.7; max-width: 340px; }
+.urgency { background: rgba(212,255,0,0.12); border: 1px solid rgba(212,255,0,0.3); color: #D4FF00; font-family: 'Barlow Condensed', sans-serif; font-size: 0.88rem; font-weight: 700; letter-spacing: 0.1em; padding: 0.6rem 1.2rem; text-transform: uppercase; }
+.waBtn {
+  width: 100%;
+  background: #25D366;
+  color: #fff;
+  border: none;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center; gap: 0.7rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+  max-width: 380px;
+}
+.waBtn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(37,211,102,0.5); }
+.successNote { font-size: 0.78rem; color: rgba(255,255,255,0.3); }
+/* FORCE FIX GOAL HEADINGS */
+.goalBtn span:first-child {
+  color: #D4FF00 !important;
+}
+/* ===== FIX DROPDOWN (SELECT USING .input CLASS) ===== */
+
+/* main select field */
+select.input {
+  background-color: rgba(15,15,24,0.96) !important;
+  color: #ffffff !important;
+}
+
+/* dropdown list options */
+select.input option {
+  background-color: #0f0f18 !important;
+  color: #ffffff !important;
+}
+
+/* fix for some browsers (like Chrome/Edge) */
+select.input:focus {
+  background-color: rgba(15,15,24,0.96);
+  color: #ffffff;
+}
